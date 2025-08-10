@@ -1,10 +1,12 @@
 "use client"
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Search } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay"
 
 type AnimalImage = {
   id: string;
@@ -35,6 +37,10 @@ export function Gallery() {
   const [images, setImages] = useState<AnimalImage[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const plugin = useRef(
+    Autoplay({ delay: 1000, stopOnInteraction: true })
+  );
+
   // Simulate fetching data on component mount
   useEffect(() => {
     // In a real app, you would fetch this from Firestore and listen for real-time updates
@@ -49,20 +55,68 @@ export function Gallery() {
       return images;
     }
     return images.filter(image =>
-      image.type.toLowerCase().includes(searchTerm.toLowerCase())
+       image.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      image.alt.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [searchTerm, images]);
 
+  const featuredImages = useMemo(() => {
+    return images.slice(0, 5); // Feature the first 5 images in the carousel
+  }, [images]);
+
   return (
     <section aria-labelledby="gallery-heading">
-        <h2 id="gallery-heading" className="text-4xl md:text-5xl font-bold font-headline text-center mb-12 text-primary">Our Animals</h2>
+         <div className="text-center mb-12">
+            <h1 id="gallery-heading" className="text-4xl md:text-5xl font-bold font-headline text-primary">Gallery</h1>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                A glimpse into life at Golden Roger Ranch.
+            </p>
+        </div>
+
+        {loading ? (
+             <Skeleton className="w-full h-[400px] md:h-[600px] rounded-lg bg-secondary mb-12" />
+        ) : (
+            <Carousel
+                 plugins={[plugin.current]}
+                onMouseEnter={() => plugin.current.stop()}
+                onMouseLeave={() => plugin.current.reset()}
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full max-w-5xl mx-auto mb-20"
+            >
+                <CarouselContent>
+                    {featuredImages.map((image) => (
+                        <CarouselItem key={image.id}>
+                             <Card className="overflow-hidden">
+                                <CardContent className="p-0">
+                                    <Image
+                                        src={image.url}
+                                        alt={image.alt}
+                                        width={1200}
+                                        height={800}
+                                        className="object-cover w-full h-[400px] md:h-[600px]"
+                                        data-ai-hint={image['data-ai-hint']}
+                                    />
+                                </CardContent>
+                             </Card>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious className="ml-16" />
+                <CarouselNext className="mr-16" />
+            </Carousel>
+        )}
+        
+        <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12 text-primary">All Photos</h2>
         <div className="relative mb-8 max-w-lg mx-auto">
             <label htmlFor="search-gallery" className="sr-only">Search Gallery</label>
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" aria-hidden="true" />
             <Input
                 id="search-gallery"
                 type="text"
-                placeholder="Search by animal type (e.g., cattle, horses)..."
+                placeholder="Search by animal type or description..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-11 w-full bg-secondary/80 focus:bg-secondary border-0"
