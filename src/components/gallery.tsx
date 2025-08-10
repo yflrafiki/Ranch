@@ -55,7 +55,7 @@ export function Gallery() {
 
   return (
     <section aria-labelledby="gallery-heading">
-        <h2 id="gallery-heading" className="text-4xl font-bold font-headline text-center mb-8 text-primary">Our Animals</h2>
+        <h2 id="gallery-heading" className="text-4xl md:text-5xl font-bold font-headline text-center mb-12 text-primary">Our Animals</h2>
         <div className="relative mb-8 max-w-lg mx-auto">
             <label htmlFor="search-gallery" className="sr-only">Search Gallery</label>
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" aria-hidden="true" />
@@ -65,14 +65,14 @@ export function Gallery() {
                 placeholder="Search by animal type (e.g., cattle, horses)..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-11 w-full bg-background/80"
+                className="pl-11 w-full bg-secondary/80 focus:bg-secondary border-0"
             />
         </div>
         
         {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {Array.from({ length: 8 }).map((_, index) => (
-                    <Skeleton key={index} className="w-full h-64 md:h-80 rounded-lg" />
+                    <Skeleton key={index} className="w-full h-64 md:h-80 rounded-lg bg-secondary" />
                 ))}
             </div>
         ) : (
@@ -80,7 +80,7 @@ export function Gallery() {
                 {filteredImages.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                         {filteredImages.map(image => (
-                            <Card key={image.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group rounded-lg border-primary/20">
+                            <Card key={image.id} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300 group rounded-lg border-primary/10 hover:border-primary/30">
                                 <CardContent className="p-0">
                                     <div className="aspect-square w-full overflow-hidden">
                                         <Image
