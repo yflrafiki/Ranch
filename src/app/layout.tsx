@@ -1,13 +1,14 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter, Lora } from 'next/font/google'
+import { Header } from '@/components/header';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const playfairDisplay = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair-display' })
+const lora = Lora({ subsets: ['latin'], variable: '--font-lora' })
 
 export const metadata: Metadata = {
-  title: 'RanchView',
+  title: 'Golden Roger Ranch',
   description: 'A beautiful view of the ranch and its animals.',
 };
 
@@ -17,9 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} ${playfairDisplay.variable} font-body antialiased`}>
-        {children}
+    <html lang="en">
+      <body className={`${inter.variable} ${lora.variable} font-body antialiased`}>
+          <div className="flex flex-col min-h-dvh">
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <footer className="text-center py-6 bg-secondary mt-16">
+            <p className="text-muted-foreground">&copy; {new Date().getFullYear()} Golden Rogers Ranch. All Rights Reserved.</p>
+          </footer>
+        </div>
         <Toaster />
       </body>
     </html>

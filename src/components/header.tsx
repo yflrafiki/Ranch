@@ -1,25 +1,50 @@
-import Image from 'next/image';
-import { Mountain } from 'lucide-react';
+import Link from 'next/link';
+import { Mountain, Menu } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export function Header() {
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/livestock', label: 'Livestock' },
+    { href: '/meats', label: 'Meats' },
+  ];
+
   return (
-    <header className="relative w-full h-[50vh] md:h-[60vh]">
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10" />
-        <Image 
-            src="https://plus.unsplash.com/premium_photo-1677575241227-d23219bef088?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cmFuY2h8ZW58MHx8MHx8fDA%3D" 
-            data-ai-hint="ranch landscape" 
-            alt="Banner image of a sprawling ranch with a large house and acres of land" 
-            layout="fill" 
-            objectFit="cover" 
-            priority
-            className="brightness-75"
-        />
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
-            <div className="flex items-center gap-4 mb-4">
-                <Mountain className="h-12 w-12 text-primary" />
-                <h1 className="text-6xl md:text-8xl font-bold font-headline tracking-tight">RanchView</h1>
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm shadow-sm">
+         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center gap-2">
+          <Mountain className="h-6 w-6 text-primary" />
+          <span className="text-xl font-bold font-headline text-foreground">Golden Rogers Ranch</span>
+        </Link>
+        <nav className="hidden md:flex gap-6">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="text-base font-medium text-muted-foreground transition-colors hover:text-primary">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon" className="md:hidden">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right">
+            <div className="grid gap-4 py-6">
+              <Link href="/" className="flex items-center gap-2 mb-4">
+                 <Mountain className="h-6 w-6 text-primary" />
+                 <span className="text-xl font-bold font-headline text-foreground">RanchView</span>
+              </Link>
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary">
+                  {link.label}
+                </Link>
+              ))}
             </div>
-            <p className="mt-2 text-xl md:text-2xl font-body">A glimpse into our world</p>
+            </SheetContent>
+          </Sheet>
         </div>
     </header>
   );

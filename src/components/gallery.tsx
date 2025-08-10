@@ -16,18 +16,18 @@ type AnimalImage = {
 
 // Mock data simulating Firestore fetch
 const allImages: AnimalImage[] = [
-    { id: '1', url: 'https://placehold.co/600x600.png', type: 'cattle', alt: 'A brown cow in a grassy field under a blue sky', 'data-ai-hint': 'cattle field' },
-    { id: '2', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'A majestic white horse running through a sunlit pasture', 'data-ai-hint': 'horse pasture' },
-    { id: '3', url: 'https://placehold.co/600x600.png', type: 'cattle', alt: 'A herd of black and white Holstein cattle grazing peacefully', 'data-ai-hint': 'cattle grazing' },
-    { id: '4', url: 'https://placehold.co/600x600.png', type: 'sheep', alt: 'A flock of fluffy white sheep on a vibrant green hillside', 'data-ai-hint': 'sheep hillside' },
-    { id: '5', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'A stunning close-up of a brown horse\'s gentle face', 'data-ai-hint': 'horse face' },
-    { id: '6', url: 'https://placehold.co/600x600.png', type: 'chickens', alt: 'Brown and white chickens pecking at the ground in a rustic farmyard', 'data-ai-hint': 'chickens farmyard' },
-    { id: '7', url: 'https://placehold.co/600x600.png', type: 'pigs', alt: 'An adorable piglet with a curly tail relaxing in the sunlit mud', 'data-ai-hint': 'piglet mud' },
-    { id: '8', url: 'https://placehold.co/600x600.png', type: 'cattle', alt: 'A young calf with large curious eyes standing next to its mother', 'data-ai-hint': 'cattle calf' },
-    { id: '9', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'Two beautiful horses, one black and one brown, standing side-by-side in a field', 'data-ai-hint': 'two horses' },
-    { id: '10', url: 'https://placehold.co/600x600.png', type: 'goats', alt: 'A nimble goat with impressive horns climbing on a rock outcropping', 'data-ai-hint': 'goat rock' },
-    { id: '11', url: 'https://placehold.co/600x600.png', type: 'sheep', alt: 'A single black sheep standing out amongst a large flock of white sheep', 'data-ai-hint': 'black sheep' },
-    { id: '12', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'A silhouette of a person riding a horse against a dramatic sunset', 'data-ai-hint': 'horse riding' },
+    { id: '1', url: 'https://media.istockphoto.com/id/2219390601/photo/brown-cow-grazing-peacefully-in-a-vibrant-green-pasture-under-a-bright-blue-sky.webp?a=1&b=1&s=612x612&w=0&k=20&c=7bBeJP_QqcRqwSbLoF_Enjme4bN6d2Rm-aPycYQjBDw=', type: 'cattle', alt: 'A brown cow in a grassy field under a blue sky', 'data-ai-hint': 'cattle field' },
+    { id: '2', url: 'https://media.istockphoto.com/id/2226030831/photo/manitoba-canada-countryside.webp?a=1&b=1&s=612x612&w=0&k=20&c=E_R76zxGG3vcF8MQ_1IVhRzoJSuy8uP5Zrh82U-yBMk=', type: 'horse', alt: 'A majestic white horse running through a sunlit pasture', 'data-ai-hint': 'horse pasture' },
+    { id: '3', url: 'https://media.istockphoto.com/id/2175983532/photo/dairy-cows-grazing-in-lush-pasture.webp?a=1&b=1&s=612x612&w=0&k=20&c=pDs92WsGl6Y5pS5eCJN2N_0TeOzHFrEeAjOqhlXykow=', type: 'cattle', alt: 'A herd of black and white Holstein cattle grazing peacefully', 'data-ai-hint': 'cattle grazing' },
+    { id: '4', url: 'https://media.istockphoto.com/id/2148188816/photo/aerial-view-of-a-flock-of-sheep-grazing-sheep-grazing-on-a-meadow-in-ireland-aerial-view-of-a.webp?a=1&b=1&s=612x612&w=0&k=20&c=NB-Z8cyFhp9jX_qYMrjDLHLJRlvPAwoY7OQxJ8CFXjQ=', type: 'sheep', alt: 'A flock of fluffy white sheep on a vibrant green hillside', 'data-ai-hint': 'sheep hillside' },
+    { id: '5', url: 'https://media.istockphoto.com/id/526038687/photo/portrait-of-a-chestniut-stallion.webp?a=1&b=1&s=612x612&w=0&k=20&c=JuTrDKvLVjA_95qsf-0tLCp8GRPIM6zz8hpWDWNoEjI=', type: 'horse', alt: 'A stunning close-up of a brown horse\'s gentle face', 'data-ai-hint': 'horse face' },
+    { id: '6', url: 'https://media.istockphoto.com/id/2168168829/photo/chickens-at-a-farm.webp?a=1&b=1&s=612x612&w=0&k=20&c=WZCJjqGoFwCRoRTrTEA0SwJlYtnag2DNUasvYtU635o=', type: 'chickens', alt: 'Brown and white chickens pecking at the ground in a rustic farmyard', 'data-ai-hint': 'chickens farmyard' },
+    { id: '7', url: 'https://media.istockphoto.com/id/964058494/photo/organic-piglet-take-a-mud-bath-and-posing-in-front-of-the-camera.webp?a=1&b=1&s=612x612&w=0&k=20&c=xVlx_ZtxtYS4JlNyBXNi8cjIHPw4_-Ij5dnF5dHeqrA=', type: 'pigs', alt: 'An adorable piglet with a curly tail relaxing in the sunlit mud', 'data-ai-hint': 'piglet mud' },
+    { id: '8', url: 'https://media.istockphoto.com/id/2170525166/photo/black-white-hereford-cow-brown-white-young-calf.webp?a=1&b=1&s=612x612&w=0&k=20&c=-YidO5Gy8UqgxZIAppNUPgMXp__9Lrov9ftBObosWKs=', type: 'cattle', alt: 'A young calf with large curious eyes standing next to its mother', 'data-ai-hint': 'cattle calf' },
+    { id: '9', url: 'https://media.istockphoto.com/id/2201754737/photo/two-ponies-interacting-on-a-grass-field-in-a-natural-outdoor-setting.webp?a=1&b=1&s=612x612&w=0&k=20&c=jF8q-FPTsqtXPxnUPkm5fgHnqYXDMSlmkkg0sqQzHDI=', type: 'horse', alt: 'Two beautiful horses, one black and one brown, standing side-by-side in a field', 'data-ai-hint': 'two horses' },
+    { id: '10', url: 'https://media.istockphoto.com/id/1194703639/photo/wild-mountain-goats-of-the-colorado-rocky-mountains.webp?a=1&b=1&s=612x612&w=0&k=20&c=iWxzMimRC5yKw25OhbAPN-ojB-5_7krpJI6n8IN5SXI=', type: 'goats', alt: 'A nimble goat with impressive horns climbing on a rock outcropping', 'data-ai-hint': 'goat rock' },
+    { id: '11', url: 'https://media.istockphoto.com/id/184867755/photo/black-sheep-of-family.webp?a=1&b=1&s=612x612&w=0&k=20&c=HzzDon1tnP2BuyEz1vyYVnf8SKnIzXx7z5aLChQ7D2I=', type: 'sheep', alt: 'A single black sheep standing out amongst a large flock of white sheep', 'data-ai-hint': 'black sheep' },
+    { id: '12', url: 'https://media.istockphoto.com/id/1397152328/photo/a-cowboy-on-a-horse-springing-up-and-a-riding-horse-silhouetted-against-the-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=J3sI13FA7RG9aETduVctjbrRUVqR46GGxevtRTrhxnQ=', type: 'horse', alt: 'A silhouette of a person riding a horse against a dramatic sunset', 'data-ai-hint': 'horse riding' },
 ];
 
 export function Gallery() {
