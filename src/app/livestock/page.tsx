@@ -6,28 +6,28 @@ const livestock = [
     name: 'Angus Cattle', 
     priceRange: '$1,800 - $2,500', 
     description: 'Renowned for their superior meat quality, our Angus cattle are grass-fed and raised in open pastures.', 
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://media.istockphoto.com/id/2151351979/photo/angus-cow-calf-pair-in-herd-in-spring-pasture.webp?a=1&b=1&s=612x612&w=0&k=20&c=v76taonHGQ8upXfGLD4FY-gGgWP715f8jd8qyLo4zaI=',
     'data-ai-hint': 'Angus cattle'
   },
   { 
     name: 'Quarter Horses', 
     priceRange: '$5,000 - $15,000', 
     description: 'Versatile and good-natured, our Quarter Horses are perfect for both work and recreation. Excellent bloodlines.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://media.istockphoto.com/id/91616312/photo/quarter-horse-galloping-across-field.webp?a=1&b=1&s=612x612&w=0&k=20&c=C1nYQn2kudxv2OVYUpz4CjcR70N0OhSVFCBM4kL4wGM=',
     'data-ai-hint': 'Quarter horse'
   },
   { 
     name: 'Boer Goats', 
     priceRange: '$300 - $600', 
     description: 'Hardy and adaptable, Boer goats are an excellent choice for meat production. Well-cared-for and healthy.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://media.istockphoto.com/id/486873140/photo/young-african-boer-goat-on-in-the-paddock-farm.webp?a=1&b=1&s=612x612&w=0&k=20&c=MUPpEuVM4bJYLe1fF3tv0ksOIysQuJRVM2hZ4_GBFYM=',
     'data-ai-hint': 'Boer goat'
   },
   { 
     name: 'Dorset Sheep', 
     priceRange: '$250 - $450', 
     description: 'Our Dorset sheep are known for their high-quality wool and mild-flavored meat. Great for breeding stock.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://media.istockphoto.com/id/1483352103/photo/katahdin-sheep-ewe-just-before-sunrise.webp?a=1&b=1&s=612x612&w=0&k=20&c=FiA0HMMUy-unPn_UIwGg0JrWQx6kyK6TVljehWUe4Jw=',
     'data-ai-hint': 'Dorset sheep'
   },
 ];
