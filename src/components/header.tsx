@@ -10,7 +10,7 @@ export function Header() {
     { href: '/meats', label: 'Meats' },
     { href: '/gallery', label: 'Gallery' },
     // { href: '/about', label: 'About Us' },
-    // { href: '/contact', label: 'Contact' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
