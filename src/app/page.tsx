@@ -34,8 +34,9 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">About the Golden Rogers</h2>
+            <p className='text-xl font-semibold'>Founded by Anthony E. Rogers</p>
             <p className="text-lg leading-relaxed text-foreground/80">
-              For three generations, the Miller family has been dedicated to responsible farming and animal welfare on the sprawling expanse of RanchView. Our home is nestled among rolling hills and lush pastures, where we raise healthy, happy livestock in a serene environment. We believe in tradition, hard work, and a deep respect for the land.
+              For three generations, the Rogers family has been dedicated to responsible farming and animal welfare on the sprawling expanse of Golden Ranch. Our home is nestled among rolling hills and lush pastures, where we raise healthy, happy livestock in a serene environment. We believe in tradition, hard work, and a deep respect for the land.
             </p>
             <p className="text-lg leading-relaxed text-foreground/80">
               We're proud to offer our community the finest quality livestock and farm-to-table meats, continuing a legacy of excellence that you can taste.
@@ -45,7 +46,7 @@ export default function Home() {
             <Image
               src="https://placehold.co/600x400.png"
               data-ai-hint="family portrait"
-              alt="A portrait of the Miller family"
+              alt="A portrait of the Rogers family"
               width={600}
               height={400}
               className="rounded-lg shadow-xl w-full h-auto object-cover"
