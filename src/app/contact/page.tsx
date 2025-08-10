@@ -26,14 +26,14 @@ export default function ContactPage() {
               <Phone className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h3 className="text-xl font-semibold">Phone</h3>
-                <p className="text-muted-foreground">(555) 123-4567</p>
+                <p className="text-muted-foreground">(985)250-1951</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Mail className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h3 className="text-xl font-semibold">Email</h3>
-                <p className="text-muted-foreground">contact@goldenrogersranch.com</p>
+                <p className="text-muted-foreground">Goldenrogersranch@gmail.com</p>
               </div>
             </div>
           </div>
