@@ -38,7 +38,7 @@ export function Gallery() {
   const [loading, setLoading] = useState(true);
 
   const plugin = useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true })
   );
 
   // Simulate fetching data on component mount
