@@ -24,7 +24,7 @@ export default function Home() {
                 <Link href="/livestock">View Our Livestock</Link>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <Link href="/meats">Shop Our Meats</Link>
+                <Link href="/gallery">View our gallery</Link>
               </Button>
             </div>
         </div>

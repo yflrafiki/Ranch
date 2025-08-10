@@ -13,7 +13,7 @@ export function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/livestock', label: 'Livestock' },
-    { href: '/meats', label: 'Meats' },
+    // { href: '/meats', label: 'Meats' },
     { href: '/gallery', label: 'Gallery' },
     // { href: '/about', label: 'About Us' },
     { href: '/contact', label: 'Contact' },
