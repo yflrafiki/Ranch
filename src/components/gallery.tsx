@@ -16,18 +16,18 @@ type AnimalImage = {
 
 // Mock data simulating Firestore fetch
 const allImages: AnimalImage[] = [
-    { id: '1', url: 'https://placehold.co/400x400.png', type: 'cattle', alt: 'A brown cow in a grassy field', 'data-ai-hint': 'cattle field' },
-    { id: '2', url: 'https://placehold.co/400x400.png', type: 'horse', alt: 'A majestic white horse running through a pasture', 'data-ai-hint': 'horse pasture' },
-    { id: '3', url: 'https://placehold.co/400x400.png', type: 'cattle', alt: 'A herd of black and white cattle grazing', 'data-ai-hint': 'cattle grazing' },
-    { id: '4', url: 'https://placehold.co/400x400.png', type: 'sheep', alt: 'A flock of fluffy sheep on a hillside', 'data-ai-hint': 'sheep hillside' },
-    { id: '5', url: 'https://placehold.co/400x400.png', type: 'horse', alt: 'A close-up of a brown horse\'s face', 'data-ai-hint': 'horse face' },
-    { id: '6', url: 'https://placehold.co/400x400.png', type: 'chickens', alt: 'Chickens pecking at the ground in a farmyard', 'data-ai-hint': 'chickens farmyard' },
-    { id: '7', url: 'https://placehold.co/400x400.png', type: 'pigs', alt: 'A piglet relaxing in the mud', 'data-ai-hint': 'pig mud' },
-    { id: '8', url: 'https://placehold.co/400x400.png', type: 'cattle', alt: 'A calf standing next to its mother', 'data-ai-hint': 'cattle calf' },
-    { id: '9', url: 'https://placehold.co/400x400.png', type: 'horse', alt: 'Two horses standing side-by-side in a field', 'data-ai-hint': 'two horses' },
-    { id: '10', url: 'https://placehold.co/400x400.png', type: 'goats', alt: 'A goat climbing on a rock', 'data-ai-hint': 'goat rock' },
-    { id: '11', url: 'https://placehold.co/400x400.png', type: 'sheep', alt: 'A black sheep amongst a white flock', 'data-ai-hint': 'black sheep' },
-    { id: '12', url: 'https://placehold.co/400x400.png', type: 'horse', alt: 'A person riding a horse at sunset', 'data-ai-hint': 'horse riding sunset' },
+    { id: '1', url: 'https://placehold.co/600x600.png', type: 'cattle', alt: 'A brown cow in a grassy field under a blue sky', 'data-ai-hint': 'cattle field' },
+    { id: '2', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'A majestic white horse running through a sunlit pasture', 'data-ai-hint': 'horse pasture' },
+    { id: '3', url: 'https://placehold.co/600x600.png', type: 'cattle', alt: 'A herd of black and white Holstein cattle grazing peacefully', 'data-ai-hint': 'cattle grazing' },
+    { id: '4', url: 'https://placehold.co/600x600.png', type: 'sheep', alt: 'A flock of fluffy white sheep on a vibrant green hillside', 'data-ai-hint': 'sheep hillside' },
+    { id: '5', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'A stunning close-up of a brown horse\'s gentle face', 'data-ai-hint': 'horse face' },
+    { id: '6', url: 'https://placehold.co/600x600.png', type: 'chickens', alt: 'Brown and white chickens pecking at the ground in a rustic farmyard', 'data-ai-hint': 'chickens farmyard' },
+    { id: '7', url: 'https://placehold.co/600x600.png', type: 'pigs', alt: 'An adorable piglet with a curly tail relaxing in the sunlit mud', 'data-ai-hint': 'piglet mud' },
+    { id: '8', url: 'https://placehold.co/600x600.png', type: 'cattle', alt: 'A young calf with large curious eyes standing next to its mother', 'data-ai-hint': 'cattle calf' },
+    { id: '9', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'Two beautiful horses, one black and one brown, standing side-by-side in a field', 'data-ai-hint': 'two horses' },
+    { id: '10', url: 'https://placehold.co/600x600.png', type: 'goats', alt: 'A nimble goat with impressive horns climbing on a rock outcropping', 'data-ai-hint': 'goat rock' },
+    { id: '11', url: 'https://placehold.co/600x600.png', type: 'sheep', alt: 'A single black sheep standing out amongst a large flock of white sheep', 'data-ai-hint': 'black sheep' },
+    { id: '12', url: 'https://placehold.co/600x600.png', type: 'horse', alt: 'A silhouette of a person riding a horse against a dramatic sunset', 'data-ai-hint': 'horse riding' },
 ];
 
 export function Gallery() {
@@ -86,8 +86,8 @@ export function Gallery() {
                                         <Image
                                             src={image.url}
                                             alt={image.alt}
-                                            width={400}
-                                            height={400}
+                                            width={600}
+                                            height={600}
                                             className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                                             data-ai-hint={image['data-ai-hint']}
                                         />
