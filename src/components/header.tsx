@@ -6,7 +6,7 @@ export function Header() {
     <header className="relative w-full h-[50vh] md:h-[60vh]">
         <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10" />
         <Image 
-            src="https://placehold.co/1920x1080.png" 
+            src="https://plus.unsplash.com/premium_photo-1677575241227-d23219bef088?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cmFuY2h8ZW58MHx8MHx8fDA%3D" 
             data-ai-hint="ranch landscape" 
             alt="Banner image of a sprawling ranch with a large house and acres of land" 
             layout="fill" 
