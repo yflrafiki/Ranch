@@ -7,6 +7,7 @@ import { Search } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 
 type AnimalImage = {
   id: string;
@@ -36,6 +37,7 @@ export function Gallery() {
   const [searchTerm, setSearchTerm] = useState('');
   const [images, setImages] = useState<AnimalImage[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<AnimalImage | null>(null);
 
   const plugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
@@ -134,7 +136,7 @@ export function Gallery() {
                 {filteredImages.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                         {filteredImages.map(image => (
-                            <Card key={image.id} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300 group rounded-lg border-primary/10 hover:border-primary/30">
+                            <Card key={image.id} className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-all duration-300 group rounded-lg border-primary/10 hover:border-primary/30" onClick={() => setSelectedImage(image)}>
                                 <CardContent className="p-0">
                                     <div className="aspect-square w-full overflow-hidden">
                                         <Image
@@ -155,6 +157,24 @@ export function Gallery() {
                 )}
             </>
         )}
+        <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+            <DialogContent className="max-w-4xl p-0 border-0 bg-transparent">
+                {selectedImage && (
+                  <>
+                    <DialogTitle className="sr-only">{selectedImage.alt}</DialogTitle>
+                    <DialogDescription className="sr-only">A larger view of the gallery image: {selectedImage.alt}</DialogDescription>
+                    <Image
+                        src={selectedImage.url}
+                        alt={selectedImage.alt}
+                        width={1200}
+                        height={800}
+                        className="object-contain w-full h-auto rounded-lg"
+                        data-ai-hint={selectedImage['data-ai-hint']}
+                    />
+                  </>
+                )}
+            </DialogContent>
+        </Dialog>
     </section>
   );
 }
