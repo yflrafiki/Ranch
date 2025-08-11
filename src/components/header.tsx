@@ -19,6 +19,7 @@ export function Header() {
     { href: '/livestock', label: 'Livestock' },
     // { href: '/meats', label: 'Meats' },
     { href: '/gallery', label: 'Gallery' },
+    { href: '/faq', label: 'FAQ' },
     // { href: '/about', label: 'About Us' },
     { href: '/contact', label: 'Contact' },
   ];
