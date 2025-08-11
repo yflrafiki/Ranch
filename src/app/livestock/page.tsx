@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const livestock = [
   { 
@@ -11,28 +13,32 @@ const livestock = [
     priceRange: '$1,800 - $2,500', 
     description: 'Renowned for their superior meat quality, our Angus cattle are grass-fed and raised in open pastures.', 
     imageUrl: 'https://media.istockphoto.com/id/2151351979/photo/angus-cow-calf-pair-in-herd-in-spring-pasture.webp?a=1&b=1&s=612x612&w=0&k=20&c=v76taonHGQ8upXfGLD4FY-gGgWP715f8jd8qyLo4zaI=',
-    'data-ai-hint': 'Angus cattle'
+    'data-ai-hint': 'Angus cattle',
+    category: 'Cattle',
   },
   { 
     name: 'Quarter Horses', 
     priceRange: '$5,000 - $15,000', 
     description: 'Versatile and good-natured, our Quarter Horses are perfect for both work and recreation. Excellent bloodlines.',
     imageUrl: 'https://media.istockphoto.com/id/91616312/photo/quarter-horse-galloping-across-field.webp?a=1&b=1&s=612x612&w=0&k=20&c=C1nYQn2kudxv2OVYUpz4CjcR70N0OhSVFCBM4kL4wGM=',
-    'data-ai-hint': 'Quarter horse'
+    'data-ai-hint': 'Quarter horse',
+    category: 'Horses',
   },
   { 
     name: 'Boer Goats', 
     priceRange: '$300 - $600', 
     description: 'Hardy and adaptable, Boer goats are an excellent choice for meat production. Well-cared-for and healthy.',
     imageUrl: 'https://media.istockphoto.com/id/486873140/photo/young-african-boer-goat-on-in-the-paddock-farm.webp?a=1&b=1&s=612x612&w=0&k=20&c=MUPpEuVM4bJYLe1fF3tv0ksOIysQuJRVM2hZ4_GBFYM=',
-    'data-ai-hint': 'Boer goat'
+    'data-ai-hint': 'Boer goat',
+    category: 'Goats',
   },
   { 
     name: 'Dorset Sheep', 
     priceRange: '$250 - $450', 
     description: 'Our Dorset sheep are known for their high-quality wool and mild-flavored meat. Great for breeding stock.',
     imageUrl: 'https://media.istockphoto.com/id/1483352103/photo/katahdin-sheep-ewe-just-before-sunrise.webp?a=1&b=1&s=612x612&w=0&k=20&c=FiA0HMMUy-unPn_UIwGg0JrWQx6kyK6TVljehWUe4Jw=',
-    'data-ai-hint': 'Dorset sheep'
+    'data-ai-hint': 'Dorset sheep',
+    category: 'Sheep',
   },
    {
     name: 'Hereford Cattle',
@@ -40,6 +46,7 @@ const livestock = [
     description: 'Known for their docile nature and excellent maternal qualities, Herefords are a versatile breed.',
     imageUrl: 'https://media.istockphoto.com/id/865401848/photo/brown-and-white-cow-grazing-on-green-pasture-field-farm-dairy.webp?a=1&b=1&s=612x612&w=0&k=20&c=wRbbgrgcm1hBokEmPpKKwMcL4dvIULNxFHko2uE-wgA=',
     'data-ai-hint': 'Hereford cattle',
+    category: 'Cattle',
   },
   {
     name: 'American Paint Horse',
@@ -47,6 +54,7 @@ const livestock = [
     description: 'Prized for their unique coloring and stock horse build, they excel in a variety of equestrian disciplines.',
     imageUrl: 'https://media.istockphoto.com/id/156268948/photo/lovely-paint-horse.webp?a=1&b=1&s=612x612&w=0&k=20&c=mgJRDuxDv9E9ImiFXnNPoDEO_zi_Gj0a723NMU-U_JQ=',
     'data-ai-hint': 'Paint horse',
+    category: 'Horses',
   },
   {
     name: 'Kiko Goats',
@@ -54,6 +62,7 @@ const livestock = [
     description: 'Kikos are resilient and known for their survivability and growth rate, making them excellent for meat.',
     imageUrl: 'https://media.istockphoto.com/id/1204676069/photo/breeding-goats-in-a-farm.webp?a=1&b=1&s=612x612&w=0&k=20&c=flYZRpOJR8EeS984nDZYJlMtGskSRf81i2uP1WBQ25c=',
     'data-ai-hint': 'Kiko goat',
+    category: 'Goats',
   },
   {
     name: 'Suffolk Sheep',
@@ -61,6 +70,7 @@ const livestock = [
     description: 'A popular breed for meat production, known for their fast growth and high-quality carcasses.',
     imageUrl: 'https://media.istockphoto.com/id/479446775/photo/sheep.webp?a=1&b=1&s=612x612&w=0&k=20&c=H2BG_9waPO97CjqOPbjeIYWcDkfNwP4baupG0kzMEBw=',
     'data-ai-hint': 'Suffolk sheep',
+    category: 'Sheep',
   },
   {
     name: 'Californian Rabbits',
@@ -68,6 +78,7 @@ const livestock = [
     description: 'Known for their excellent meat-to-bone ratio and gentle temperament, making them ideal for small-scale farming.',
     imageUrl: 'https://media.istockphoto.com/id/1126077948/photo/rabbit.webp?a=1&b=1&s=612x612&w=0&k=20&c=z6WSwGsP17QrwHcRwS0pAXE9cScaLHLfN_ikTi_GoyE=',
     'data-ai-hint': 'Californian rabbit',
+    category: 'Small Animals',
   },
   {
     name: 'Rhode Island Red Chickens',
@@ -75,6 +86,7 @@ const livestock = [
     description: 'A dual-purpose breed, excellent for both egg laying and meat production. Hardy and reliable.',
     imageUrl: 'https://media.istockphoto.com/id/115761915/photo/backyard-chickens.webp?a=1&b=1&s=612x612&w=0&k=20&c=5ugt38mp9DK8fUJOFavB-Moypx9YDvHUaFc7JWZPp60=',
     'data-ai-hint': 'Rhode Island Red chicken',
+    category: 'Poultry',
   },
   {
     name: 'Leghorn Hens',
@@ -82,6 +94,7 @@ const livestock = [
     description: 'Prolific layers of large white eggs, our Leghorn hens are a top choice for egg production.',
     imageUrl: 'https://media.istockphoto.com/id/1488559788/photo/chicken-farming-animals-and-background-field-for-sustainable-production-agriculture-growth.webp?a=1&b=1&s=612x612&w=0&k=20&c=z5ub4hiHY0uwF2_wZKZaLMJnKgVyTJ9S9pMdWxbYF1I=',
     'data-ai-hint': 'Leghorn hen',
+    category: 'Poultry',
   },
   {
     name: 'Berkshire Pigs',
@@ -89,20 +102,23 @@ const livestock = [
     description: 'Prized for its rich flavor, juiciness, and tenderness, Berkshire pork is a gourmet choice.',
     imageUrl: 'https://media.istockphoto.com/id/139666575/photo/three-pigs.webp?a=1&b=1&s=612x612&w=0&k=20&c=PaRfgnRLed2al22X4eaKH9cVaOIM3Gx-lTTNYQ3nDeI=',
     'data-ai-hint': 'Berkshire pig',
+    category: 'Pigs',
   }
 ];
 
+const categories = ["All", ...Array.from(new Set(livestock.map(item => item.category)))];
+
 export default function LivestockPage() {
    const [searchTerm, setSearchTerm] = useState("");
+   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredLivestock = useMemo(() => {
-    if (!searchTerm) {
-      return livestock;
-    }
-    return livestock.filter((animal) =>
-      animal.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [searchTerm]);
+      return livestock.filter((animal) => {
+        const matchesCategory = selectedCategory === "All" || animal.category === selectedCategory;
+        const matchesSearch = !searchTerm || animal.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchesCategory && matchesSearch;
+    });
+  }, [searchTerm, selectedCategory]);
 
   return (
     <div className="container mx-auto px-4 py-16 md:px-6 lg:py-24">
@@ -113,21 +129,36 @@ export default function LivestockPage() {
         </p>
       </div>
 
-      <div className="relative mb-12 max-w-lg mx-auto">
-        <label htmlFor="search-livestock" className="sr-only">Search Livestock</label>
-        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" aria-hidden="true" />
-        <Input
-            id="search-livestock"
-            type="text"
-            placeholder="Search by animal name..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-11 w-full bg-secondary/80 focus:bg-secondary border-0"
-        />
+      <div className="flex flex-col gap-8">
+        <div className="relative max-w-lg mx-auto w-full">
+            <label htmlFor="search-livestock" className="sr-only">Search Livestock</label>
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" aria-hidden="true" />
+            <Input
+                id="search-livestock"
+                type="text"
+                placeholder="Search by animal name..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-11 w-full bg-secondary/80 focus:bg-secondary border-0"
+            />
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((category) => (
+                <Button
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "secondary"}
+                    onClick={() => setSelectedCategory(category)}
+                    className="capitalize"
+                >
+                    {category}
+                </Button>
+            ))}
+        </div>
       </div>
 
       {filteredLivestock.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
           {filteredLivestock.map((animal) => (
             <Card key={animal.name} className="overflow-hidden shadow-lg hover:shadow-primary/10 transition-shadow duration-300">
               <CardHeader className="p-0">
@@ -149,7 +180,14 @@ export default function LivestockPage() {
           ))}
         </div>
       ) : (
-        <p className="text-center mt-8 text-lg text-muted-foreground">No animals found for &quot;{searchTerm}&quot;.</p>
+        <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground">No animals found.</p>
+            {(searchTerm || selectedCategory !== 'All') && (
+                <Button variant="link" onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}>
+                    Clear Filters
+                </Button>
+            )}
+        </div>
       )}
     </div>
   );
