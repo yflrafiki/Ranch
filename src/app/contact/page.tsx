@@ -19,7 +19,7 @@ export default function ContactPage() {
               <MapPin className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h3 className="text-xl font-semibold">Our Ranch</h3>
-                <p className="text-muted-foreground">is located at Jena Louisiana</p>
+                <p className="text-muted-foreground">Jena Louisiana</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
