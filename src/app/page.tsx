@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Award, Heart, Leaf, Users } from 'lucide-react';
+import { Award, Heart, Leaf, Users, Quote } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 
 
@@ -90,6 +90,39 @@ export default function Home() {
                   <p className="text-muted-foreground">Practicing responsible farming with respect for the land.</p>
                 </CardContent>
               </Card>
+          </div>
+        </div>
+      </section>
+      <section className="bg-secondary py-16 lg:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">What Our Community Is Saying</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+              We're proud to have earned the trust of families and businesses alike.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="bg-background shadow-lg">
+              <CardContent className="p-6">
+                <Quote className="h-8 w-8 text-primary mb-4" />
+                <p className="text-foreground/80 mb-6">"The quality of the livestock from Golden Ranch is unmatched. Healthy, well-cared-for animals and a team that genuinely cares. A true asset to our community."</p>
+                <p className="font-semibold font-headline text-foreground">- The Johnson Family</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background shadow-lg">
+              <CardContent className="p-6">
+                <Quote className="h-8 w-8 text-primary mb-4" />
+                <p className="text-foreground/80 mb-6">"We've sourced our horses from Golden Ranch for years. Their bloodlines are excellent, and their temperament is perfect for both work and family life. Highly recommended."</p>
+                <p className="font-semibold font-headline text-foreground">- Sarah B., Local Farmer</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background shadow-lg">
+              <CardContent className="p-6">
+                 <Quote className="h-8 w-8 text-primary mb-4" />
+                <p className="text-foreground/80 mb-6">"As a restaurant owner, sourcing quality is everything. The farm-to-table meats from Golden Ranch have been a game-changer for our menu. Customers can taste the difference."</p>
+                <p className="font-semibold font-headline text-foreground">- Chef Michael Chen</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
